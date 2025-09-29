@@ -8,4 +8,3 @@ class PegawaiController extends Controller
 {
     //
 }
-// Belajar Git Hub
