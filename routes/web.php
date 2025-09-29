@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
+use App\Http\Controllers\HomeController;
+
+Route::get('/', function () {
+    return ('welcome');
+});
 
 Route::get('/pcr', function () {
     return ('Selamat datang di website kampus PCR!');
@@ -35,4 +40,6 @@ Route::get('/matakuliah/{param2}', function ($param2) {
 Route::get('/matakuliah/show/{kode}', [MatakuliahController::class, 'show']);
 
 Route::get('/matakuliah', [MatakuliahController::class, 'index']);
+
+Route::get('/home', [HomeController::class, 'index']);
 
