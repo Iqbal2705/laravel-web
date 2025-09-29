@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
 
+//hahahaha
 Route::get('/pcr', function () {
     return ('Selamat datang di website kampus PCR!');
 });
