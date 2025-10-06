@@ -21,13 +21,18 @@ class HomeController extends Controller
      * Show the form for creating a new resource.
      */
     public function store(Request $request){
+        $data['nama'] = $request->nama;
+        $data['email'] = $request->email;
+        $data['pertanyaan'] = $request->pertamyaan;
+
 		$request->validate([
 		    'nama'  => 'required|max:10',
 		    'email' => ['required','email'],
 		    'pertanyaan' => 'required|max:300|min:8',
 		]);
-		return view ('home', $request);
+        return view('home-requestion-respon', $data);
     }
+
     public function create()
     {
         //
@@ -36,10 +41,6 @@ class HomeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
