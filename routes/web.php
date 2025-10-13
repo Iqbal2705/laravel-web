@@ -40,9 +40,9 @@ Route::get('/matakuliah/{param2}', function ($param2) {
 
 Route::get('/matakuliah/show/{kode}', [MatakuliahController::class, 'show']);
 
-Route::get('/matakuliah', [MatakuliahController::class, 'index']);
+Route::get('/matakuliah', [MatakuliahController::class, 'index'])->name(name:'matakuliah');
 
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->name(name:'home');
 
 Route::post('question/store', [QuestionController::class, 'store'])
 		->name('question.store');

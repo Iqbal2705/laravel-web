@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td>
-                Frameworkl
+                Framework
             </td>
             <td>
                 Algoritma
