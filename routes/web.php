@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\MatakuliahController;
@@ -54,3 +55,5 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name(name:'dashb
 
 //pelanggan
 Route::resource('pelanggan', PelangganController::class);
+
+Route::resource('user', UserController::class);
