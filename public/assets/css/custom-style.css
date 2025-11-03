@@ -1,0 +1,13 @@
+.navbar-logo{
+    height: 40px;
+    weight: auto;
+}
+
+@font-face {
+    font-family: 'IqbalFont';
+    src: url('../fonts/iqbal2.ttf');
+}
+
+.font-custom{
+    font-family: 'IqbalFont';
+}

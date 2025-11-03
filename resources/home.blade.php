@@ -10,46 +10,66 @@
     {{-- Bootstrap 5 CSS dari CDN untuk styling --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom-style.css') }}">
 </head>
 <body>
 
     {{-- Bagian Navigasi --}}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="/">Data Mahasiswa</a>
+            <a class="navbar-brand" href="/">NamaProyek</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Tambah Data</a>
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/">Lihat Data</a>
+                        <a class="nav-link" href="#">Tentang</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Hapus Data</a>
+                        <a class="nav-link" href="#">Layanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Ubah data</a>
+                        <a class="nav-link" href="#">Kontak</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-
+    {{-- Konten Utama Halaman Home --}}
     <main class="container my-5">
 
+        {{-- Hero Section / Jumbotron --}}
+        <div class="p-5 mb-4 bg-light rounded-3 text-center">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">{{$username}}</h1>
+                <p class="fs-4 col-md-8 mx-auto">{{$last_login}}</p>
+                <a href="#" class="btn btn-primary btn-lg mt-3">Pelajari Lebih Lanjut</a>
+            </div>
+        </div>
 
-        <div class="center">
-            <h2 class="mb-4 ">TAMBAH DATA MAHASISWA</h2>
+        {{-- Features Section --}}
+        <div class="row text-center">
+            <h2 class="mb-4 ">Fitur Unggulan Kami</h2>
 
-            <div class="col-lg-4 col-md-6 mb-4", class="center">
+            {{-- Fitur 1 --}}
+            <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
+                        <h5 class="card-title font-custom">Logo Politeknik Caltex Riau</h5>
+                        <img src="{{ asset('assets/images/caltex_logo.png') }}" alt="Logo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Form Pertanyaan</h5>
 
                     @if ($errors->any())
                     <div class="alert alert-danger">
@@ -67,33 +87,40 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('mahasiswa.index') }}" method="POST">
+
+
+
+                    <form action="{{ route('question.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama</label>
                             <input type="text" class="form-control" name="nama">
                         </div>
                         <div class="mb-3">
-                            <label for="nim" class="form-label">NIM</label>
-                            <input type="text" class="form-control" name="nim">
-                        </div>
-                        <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <textarea class="form-control" rows="4" name="email"></textarea>
+                            <input type="text" class="form-control" name="email">
                         </div>
                         <div class="mb-3">
-                            <label for="jurusan" class="form-label">Jurusan</label>
-                            <input type="text" class="form-control" name="jurusan">
+                            <label for="pertanyaan" class="form-label">Pertanyaan</label>
+                            <textarea class="form-control" rows="4" name="pertanyaan"></textarea>
                         </div>
-                        <div class="mb-3">
-                            <label for="alamat" class="form-label">Alamat</label>
-                            <textarea class="form-control" rows="4" name="alamat"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Kirim Data</button>
+                        <button type="submit" class="btn btn-primary">Kirim Pertanyaan</button>
                     </form>
                     </div>
                 </div>
             </div>
+
+
+            {{-- Fitur 3 --}}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Mudah Dikustomisasi</h5>
+                        <p class="card-text">Kode yang rapi dan terstruktur, memudahkan Anda untuk mengubah konten sesuai kebutuhan proyek.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
 
