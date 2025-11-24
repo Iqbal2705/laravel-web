@@ -67,8 +67,8 @@
                         </div>
                         <div class="col-md-3">
                             <div class="input-group">
-                                <input ...>
-                                <button ...>
+                                <input>
+                                <button>
                                     @if (request('search'))
                                         <a href="{{ request()->fullUrlWithQuery(['search' => null]) }}"
                                             class="btn btn-outline-secondary ml-3" id="clear-search"> Clear</a>
