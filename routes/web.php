@@ -9,6 +9,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerController;
 
 Route::get('/', function () {
     return ('welcome');
@@ -97,3 +98,8 @@ Route::middleware('auth')->group(function () {
     });
 
 });
+
+Route::get('/multipleuploads', 'MultipleuploadsController@index')->name('uploads');
+Route::post('/save','MultipleuploadsController@store')->name('uploads.store');
+
+

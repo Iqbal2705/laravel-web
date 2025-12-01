@@ -50,7 +50,7 @@ class UserController extends Controller
         $user = User::create($validatedData);
         $user->assignRole($request->role);
 
-        return redirect()->route('admin.user.index')->with('success', 'Penambahan Data Berhasil!');
+        return redirect()->route('user.index')->with('success', 'Penambahan Data Berhasil!');
     }
 
     /**
@@ -94,7 +94,7 @@ class UserController extends Controller
         $user->update($validatedData);
         $user->syncRoles($request->role);
 
-        return redirect()->route('admin.user.index')->with('success', 'Perubahan Data Berhasil!');
+        return redirect()->route('user.index')->with('success', 'Perubahan Data Berhasil!');
     }
 
     /**
@@ -110,6 +110,6 @@ class UserController extends Controller
 
         $user->delete();
 
-        return redirect()->route('admin.user.index')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('user.index')->with('success', 'Data berhasil dihapus');
     }
 }
